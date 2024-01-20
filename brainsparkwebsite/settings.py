@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,17 +20,20 @@ import os
 # import dotenv
 # dotenv.load_dotenv()
 
+
+
 # SECRET_KEY = os.environ["SECRET_KEY"]
-SECRET_KEY = 'django-insecure-6c^elcd^sttcrh($%lp@2x-*qu_ra4xdck!k=!&=764e2gssdr'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-xs=5$u2$d0#5gk$2%_jy4c_qr4*uu-3jn92xdqs$08he886s(v'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'Flase').lower() == 'true'
 
 
 
@@ -38,10 +41,11 @@ DEBUG = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'zahidhasan2597@gmail.com'
-EMAIL_HOST_PASSWORD = 'rjzo jauk nfpa fswn'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split('')
 ALLOWED_HOSTS = []
 
 # # settings.py
@@ -80,6 +84,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -114,8 +119,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# database_url = os.environ.get('DATABASE_URL')
+database_url='postgres://brainsparkdatabase_user:ex3MOPwbMczWRCytuuDRoVgiNFv8wRtw@dpg-cmlvhh21hbls73cco2hg-a.oregon-postgres.render.com/brainsparkdatabase'
+DATABASES['default']=dj_database_url.parse(database_url)
 
-
+# postgres://brainsparkdatabase_user:ex3MOPwbMczWRCytuuDRoVgiNFv8wRtw@dpg-cmlvhh21hbls73cco2hg-a.oregon-postgres.render.com/brainsparkdatabase
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -155,7 +163,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'  # URL pattern for accessing media files
 MEDIA_ROOT = BASE_DIR/'media'  # Absolute path to the media directory

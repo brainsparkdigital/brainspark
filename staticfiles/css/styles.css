@@ -1,0 +1,424 @@
+/* styles.css */
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 160px 0;
+    background-image: url("{% static 'img/banner.png' %}");
+    background-size: cover;
+    color: white;
+}
+.banner-content {
+    font-size: 42px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #df2020;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #b90000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-content {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Modernized About Section */
+#about {
+    background-color: #f8f8f8;
+    padding: 80px 0;
+}
+
+.display-4 {
+    font-size: 40px;
+    color: #007bff;
+}
+
+.lead {
+    font-size: 18px;
+    color: #555;
+}
+
+.card {
+    opacity: 0;
+    margin-top: 20px;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.list-group-item {
+    font-size: 16px;
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1457ad;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 32px;
+    }
+
+    .lead {
+        font-size: 16px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .list-group-item {
+        font-size: 14px;
+    }
+}
+
+/* Category section styles */
+.category-section {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.category-box {
+    background-color: #3a73bd;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.category-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.category-text {
+    text-align: center;
+}
+
+.category-text h2 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.category-text p {
+    font-size: 16px;
+}
+
+/* Service section styles */
+.service-section {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.service-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background-color: #8d0d82;
+    color: white;
+    width: 250px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-text {
+    text-align: center;
+}
+
+.service-text h2 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.service-text p {
+    font-size: 16px;
+}
+
+/* Custom Styles for PC */
+@media (min-width: 769px) {
+    .services-section {
+        background-color: #f8f8f8;
+    }
+
+    .services-heading h2 {
+        color: #333;
+    }
+}
+
+/* FAQ section styles */
+.faq-list {
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+/* Additional Portfolio Styles */
+#portfolio {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+.portfolio-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-image {
+    position: relative;
+}
+
+.portfolio-image img {
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.portfolio-details {
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio-details h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.portfolio-details p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+
+/* Add this to your existing CSS file or create a new one */
+
+.home-about-section {
+    text-align: center;
+}
+
+.home-about-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.home-about-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-about-section h1 {
+        font-size: 2rem;
+    }
+
+    .home-about-section p {
+        font-size: 1rem;
+    }
+}
+
+
+
+/* Add this CSS to your existing styles or create a new CSS file */
+
+/* Blog Post Container */
+.row {
+    margin: 20px 0;
+  }
+  
+  /* Blog Post Content */
+  .col-md-8 {
+    max-width: 100%;
+  }
+  
+  .article {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .article:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Blog Post Metadata */
+  .text-muted {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Sidebar */
+  .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 767px) {
+    .col-md-8 {
+      order: 2;
+    }
+    
+    .col-md-4 {
+      order: 1;
+    }
+  }
+  
