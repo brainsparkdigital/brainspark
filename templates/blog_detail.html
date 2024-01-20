@@ -1,0 +1,32 @@
+<!-- Updated blog post page HTML with Back to Blog option -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <article class="article">
+          <h1 class="display-4 mb-4">{{ blog_post.title }}</h1>
+          {% if blog_post.image %}
+            <img src="{{ blog_post.image.url }}" class="img-fluid rounded" alt="{{ blog_post.title }}">
+          {% endif %}
+          <div class="text-muted mb-4">
+            <small>Published on {{ blog_post.pub_date|date:"F d, Y" }}</small> | <small>Last updated on {{ blog_post.modified|date:"F d, Y" }}</small>
+          </div>
+          <div class="mb-4">
+            {{ blog_post.text|safe }}
+          </div>
+        </article>
+
+        <div class="mt-4">
+          <a href="{% url 'blog_list' %}" class="btn btn-secondary">Back to Blog</a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Sidebar or additional content can be added here -->
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!-- blog_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="blog-container">
+    <h1 class="blog-title">All Blog Posts</h1>
+    {% for blog_post in blog_posts %}
+      <div class="blog-post">
+        {% if blog_post.image %}
+          <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}" class="blog-post-image">
+        {% endif %}
+        <div class="blog-post-content">
+          <h2 class="blog-post-title">{{ blog_post.title }}</h2>
+          <p class="blog-post-description">{{ blog_post.description }}</p>
+          <a href="{{ blog_post.get_absolute_url }}" class="blog-read-more">Read more</a>
+          <p class="blog-published-date">Published on {{ blog_post.pub_date|date:"F d, Y" }}</p>
+        </div>
+      </div>
+    {% endfor %}
+    
+    <div class="pagination">
+      <span class="step-links">
+         {% if blog_posts.has_previous %}
+            <a href="?page=1" class="pagination-link">&laquo; first</a>
+            <a href="?page={{ blog_posts.previous_page_number }}" class="pagination-link">previous</a>
+         {% endif %}
+   
+         <span class="current-page">
+            Page {{ blog_posts.number }} of {{ blog_posts.paginator.num_pages }}.
+         </span>
+   
+         {% if blog_posts.has_next %}
+            <a href="?page={{ blog_posts.next_page_number }}" class="pagination-link">next</a>
+            <a href="?page={{ blog_posts.paginator.num_pages }}" class="pagination-link">last &raquo;</a>
+         {% endif %}
+      </span>
+    </div>
+  </div>
+  
+  <style>
+    /* Add your custom styles here */
+    .blog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f0f0; /* Gray background color */
+    }
+
+    .blog-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .blog-post {
+      background-color: #fff; /* White background color */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .blog-post:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-post-image {
+      width: 100%;
+      max-height: 150px; /* Adjust the thumbnail height */
+      object-fit: cover;
+    }
+
+    .blog-post-content {
+      padding: 20px;
+    }
+
+    .blog-post-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .blog-post-description {
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .blog-read-more {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .blog-read-more:hover {
+      background-color: #0056b3;
+    }
+
+    .blog-published-date {
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .pagination-link {
+      padding: 8px 12px;
+      margin: 0 5px;
+      text-decoration: none;
+      color: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination-link:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .current-page {
+      padding: 8px 12px;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+  </style>
+{% endblock %}

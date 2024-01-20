@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - BrainSpark{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Contact Us</h2>
+    <form method="post" action="" class="contact-form">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.name.id_for_label }}">Your Name:</label>
+        {{ form.name }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.email.id_for_label }}">Your Email:</label>
+        {{ form.email }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.phone_number.id_for_label }}">Your Phone Number:</label>
+        {{ form.phone_number }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.address.id_for_label }}">Your Address:</label>
+        {{ form.address }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.service_interest.id_for_label }}">Service Interest:</label>
+        {{ form.service_interest }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.how_found_us.id_for_label }}">How did you find us?</label>
+        {{ form.how_found_us }}
+      </div>
+      <div class="form-group">
+        <label for="{{ form.message.id_for_label }}">Your Message:</label>
+        {{ form.message }}
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Submit</button>
+    </form>
+  </div>
+
+  <style>
+    /* Add your custom styles for the contact form here */
+
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form h2 {
+      color: #333;
+      font-size: 24px;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%; /* Make the button take the full width */
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+{% endblock %}

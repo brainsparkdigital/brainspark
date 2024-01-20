@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- category_list.html -->
+<h2 class="text-center mb-4">Our Services</h2>
+<section class="category-section">
+    <div class="category-list">
+        {% for category in categories %}
+            <a href="{% url 'service_list' slug=category.slug %}" class="category-box">
+                <img src="{{ category.icon.url }}" alt="{{ category.name }} Icon" class="category-icon">
+                <div class="category-text">
+                    <h2>{{ category.name }}</h2>
+                    <p>{{ category.short_description }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- New section with image on the left and text on the right -->
+<section class="image-text-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'img/showimage.jpg' %}" alt="Your Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-content">
+                    
+                    <h2 class="text-center mb-4">Why Choose Us?</h2>
+                    <p>Welcome to <strong>BrainSpark</strong>, where we specialize in cutting-edge tech solutions to elevate your business. Our services are crafted to meet the diverse demands of the digital landscape. Dive into the forefront of technology with our expertise. Unleash the Power of Intelligence with our Artificial Intelligence (AI) services. In a data-driven world, harnessing AI is not just an advantage; it's a necessity. Our AI services empower businesses to make informed decisions, automate processes, and enhance user experiences, paving the way for innovation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- New section with image on the right and text on the left -->
+<section class="image-text-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-content">
+                    
+                    <p>Crafting Digital Experiences is our forte in Web Development. A strong online presence is crucial for success, and our expert web development team creates seamless, responsive, and visually stunning websites tailored to your business needs. Whether it's an interactive e-commerce platform or a dynamic web application, we bring your vision to life.
+                        Boost Your Visibility, Amplify Your Reach with our Search Engine Optimization (SEO) services. Standing out in a content-saturated digital landscape is key. Our SEO services elevate your online visibility, drive organic traffic, and position your business at the top of search engine results. Let us optimize your digital footprint and ensure your target audience finds you effortlessly. Why Choose [Your Company Name]?
+                        Expertise: Our team comprises seasoned professionals with a passion for technology.
+                        Innovation: Stay ahead of the curve with innovative solutions tailored to your unique requirements.
+                        Results-Driven: We measure success by the impact our services have on your business growth.
+                        Collaboration: Your goals are our goals. We work hand-in-hand with clients to achieve mutual success.
+                        Get Started on Your Tech Journey
+                        Embark on a journey of digital transformation with [Your Company Name]. Our commitment to excellence, technological prowess, and client-centric approach set us apart. Elevate your business to new heights with our tech solutions. Contact us today to explore the endless possibilities.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'img/showimage2.jpg' %}" alt="Your Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Connect with Us Section -->
+<section id="connect-with-us" style="padding: 50px 0; text-align: center;">
+    <div class="container">
+        <h2>Connect With Us</h2>
+        <p>Have questions or ready to get started on your tech journey? Connect with us for personalized assistance.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Connect Now</a>
+    </div>
+</section>
+
+{% endblock content %}

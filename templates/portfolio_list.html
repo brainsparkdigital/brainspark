@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolios - Your Site Name{% endblock %}
+
+{% block content %}
+    <section id="portfolio" style="padding: 50px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="mb-4">Our Portfolio</h2>
+                </div>
+            </div>
+
+            <div class="row portfolio-items">
+                {% for portfolio in portfolios %}
+                    <div class="col-md-4 mb-4">
+                        <a href="{% url 'portfolio_detail' portfolio.slug %}" class="text-decoration-none text-dark" title="{{ portfolio.name }}">
+                            <div class="portfolio-item rounded shadow p-4">
+                                <div class="portfolio-image position-relative">
+                                    {% with first_image=portfolio.images.first %}
+                                        <img src="{{ first_image.image.url }}" alt="{{ portfolio.name }}" class="img-fluid rounded">
+                                    {% endwith %}
+                                    <i class="fas fa-search-plus portfolio-icon position-absolute top-50 start-50 translate-middle"
+                                       data-bs-toggle="modal" data-bs-target="#portfolioModal{{ portfolio.id }}"></i>
+                                </div>
+                                <div class="portfolio-details mt-3">
+                                    <h3 class="text-dark">{{ portfolio.name }}</h3>
+                                    <p>{{ portfolio.short_detail }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% empty %}
+                    <p class="text-center">No portfolio items found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+{% endblock content %}

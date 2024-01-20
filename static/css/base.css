@@ -1,0 +1,67 @@
+/* Add your custom styles here */
+
+/* Navbar Styles */
+.navbar {
+    padding: 12px;
+    background-color: #031A2D;
+    font-family: 'Ubuntu Mono', monospace; 
+}
+
+.navbar-brand img {
+    max-height: 60px; /* Adjust logo max height */
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-toggler {
+    border: solid;
+}
+
+/* Navbar Link Styles */
+.navbar-nav .nav-link {
+    color: #fff; /* Default text color */
+    font-size: 16px; /* Default font size - adjust as needed */
+    transition: color 0.3s, font-size 0.3s; /* Smooth transition effect */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #88f72d9d !important; /* Text color on hover - use !important to ensure higher specificity */
+}
+
+/* Main Content Styles */
+.container {
+    margin-top: 32px; /* Adjust margin as needed */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40; /* Dark background color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Social Media Icons in Footer */
+.list-inline-item a {
+    color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        background-color: #031A2D; /* Background color for the button */
+        border: none; /* Remove border */
+        padding: 8px 12px; /* Adjust padding as needed */
+        border-radius: 4px; /* Optional: Add border-radius for a rounded look */
+    }
+
+    .navbar-toggler:focus {
+        outline: none; /* Remove outline on focus */
+    }
+
+    .navbar-toggler-icon {
+        background-color: transparent; /* Icon color */
+    }
+}

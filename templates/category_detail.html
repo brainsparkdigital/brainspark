@@ -1,0 +1,17 @@
+<!-- service_list.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="service-list-section">
+        <div class="service-list">
+            {% for service in services %}
+                <a href="{% url 'service_detail' service.slug %}" class="service-box">
+                    <div class="service-text">
+                        <h2>{{ service.title }}</h2>
+                        <p>{{ service.short_text }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Modernized About Section -->
+<section id="modern-about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-4 text-center mb-4">About Us</h1>
+                <p class="lead text-center">Welcome to BrainSpark, your trusted partner in the digital landscape. We are a full-service digital agency dedicated to helping businesses thrive online.</p>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Our Story</h2>
+                        <p class="card-text">Founded with a vision to provide top-notch digital solutions tailored to the unique needs of our clients, BrainSpark delivers exceptional results with a team of experienced professionals.</p>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h2 class="card-title">Our Mission</h2>
+                        <p class="card-text">Empowering businesses through digital excellence, we stay ahead of industry trends, leveraging the latest technologies and strategies to drive success for our clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Our Services</h2>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>SEO:</strong> Elevate your online visibility with comprehensive SEO strategies.</li>
+                            <li class="list-group-item"><strong>Web Development:</strong> Turn your ideas into reality with expert web development services.</li>
+                            <li class="list-group-item"><strong>Graphic Design:</strong> Enhance your brand identity with stunning and professional graphic design solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Our Values</h2>
+                        <p class="card-text">Building long-term relationships with clients based on trust, transparency, and collaboration. We are passionate, committed to delivering quality work, and exceptional customer service.</p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Contact us today</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add jQuery and custom JavaScript for animations -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Add animations when scrolling
+        $(".card").each(function(index) {
+            $(this).delay(200 * index).animate({ opacity: 1, marginTop: 0 }, 1000);
+        });
+
+        // Add hover effect to the "Contact us today" button
+        $(".btn-primary").hover(function() {
+            $(this).css("background-color", "#ff6600");
+        }, function() {
+            $(this).css("background-color", "#007bff");
+        });
+    });
+</script>
+{% endblock content %}

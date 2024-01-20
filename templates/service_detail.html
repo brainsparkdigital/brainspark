@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ service.title }} - Your Site Name{% endblock %}
+
+{% block content %}
+    <h2>{{ service.title }}</h2>
+    <p>{{ service.service_text }}</p>
+    
+    <h3>FAQs</h3>
+    <div class="faq-list">
+        {% for faq in service.faq_set.all %}
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    <span class="toggle-icon">+</span> {{ faq.question }}
+                </div>
+                <div class="faq-answer">
+                    <p>{{ faq.answer }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add this before the closing </body> tag or in a separate JS file -->
+<script>
+    function toggleAnswer(element) {
+        var answer = element.nextElementSibling;
+        var icon = element.querySelector('.toggle-icon');
+
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            icon.innerHTML = '+';
+        } else {
+            answer.style.display = 'block';
+            icon.innerHTML = '-';
+        }
+    }
+</script>
+
+{% endblock %}

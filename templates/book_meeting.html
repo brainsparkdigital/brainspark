@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Book a Meeting - BrainSpark{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center mb-4">Book a Meeting</h2>
+    <form method="post" action="" class="meeting-form">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.date.label_tag }}
+        {{ form.date }}
+      </div>
+      <div class="form-group">
+        {{ form.time.label_tag }}
+        {{ form.time }}
+      </div>
+      <div class="form-group text-center"> <!-- Centered form group -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <style>
+    /* Add your custom styles for the meeting form here */
+
+    .meeting-form {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .meeting-form h2 {
+      color: #333;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="date"],
+    input[type="time"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+  </style>
+{% endblock %}

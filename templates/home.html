@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<title>{% block title %}BrainSpark-Home{% endblock %}</title>
+
+<!-- Hero Section -->
+<section class="hero" style="text-align: center; padding: 160px 0; background-image: url('{% static "img/banner.png" %}'); background-size: cover; color: white;">
+    <div class="banner-content">
+        <h1>Welcome to BrainSpark</h1>
+        <p>Your Partner in Digital Excellence</p>
+        <a href="{% url 'book_meeting' %}" class="cta-button" style="display: inline-block; padding: 15px 30px; background-color: #df2020; color: #ffffff; text-decoration: none; border-radius: 5px; font-size: 16px; transition: background-color 0.3s;">Book a Meeting</a>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-section" style="text-align: center; display: flex; align-items: center; justify-content: center; padding: 10px;">
+    <div class="services-heading">
+        <h2>Our Services</h2>
+    </div>
+</section>
+
+<!-- Category Section -->
+<section class="category-section" style="background-color: #f9f9f9; padding: 60px 0; text-align: center;">
+    <div class="category-list" style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+        {% for category in categories %}
+            <a href="{% url 'service_list' slug=category.slug %}" class="category-box" style="background-color: #3a73bd; color: white; width: 250px; padding: 20px; border: 2px solid #e0e0e0; border-radius: 10px; transition: transform 0.3s ease-in-out; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+                <img src="{{ category.icon.url }}" alt="{{ category.name }} Icon" class="category-icon" style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px;">
+                <div class="category-text" style="text-align: center;">
+                    <h2>{{ category.name }}</h2>
+                    <p>{{ category.short_description }}</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" style="padding: 50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="mb-4">Our Portfolio</h2>
+            </div>
+        </div>
+
+        <div class="row portfolio-items">
+            {% for portfolio in portfolios %}
+                <div class="col-md-4 mb-4">
+                    <a href="{% url 'portfolio_detail' portfolio.slug %}" class="text-decoration-none text-dark" title="{{ portfolio.name }}">
+                        <div class="portfolio-item rounded shadow p-4">
+                            <div class="portfolio-image position-relative">
+                                {% with first_image=portfolio.images.first %}
+                                    <img src="{{ first_image.image.url }}" alt="{{ portfolio.name }}" class="img-fluid rounded">
+                                {% endwith %}
+                                <i class="fas fa-search-plus portfolio-icon position-absolute top-50 start-50 translate-middle" data-bs-toggle="modal" data-bs-target="#portfolioModal{{ portfolio.id }}"></i>
+                            </div>
+                            <div class="portfolio-details mt-3">
+                                <h3 class="text-dark">{{ portfolio.name }}</h3>
+                                <p>{{ portfolio.short_detail }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <p class="text-center">No portfolio items found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Updated About Us Section -->
+<section id="about" class="home-about-section py-5 bg-light" style="text-align: center;">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+                <h1 class="display-4 mb-4">About Us</h1>
+                <p class="lead">BrainSpark, founded in 2023, is your trusted partner in the digital landscape. We are a full-service digital agency dedicated to helping businesses thrive online.</p>
+            </div>
+            <!-- Add more content or cards as needed -->
+        </div>
+    </div>
+</section>
+
+<!-- Latest Blog Posts Section -->
+<section id="latest-blogs" style="padding: 50px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 class="mb-4">Latest Blog Posts</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for blog_post in latest_blog_posts %}
+                <div class="col-md-4 mb-4">
+                    <a href="{% url 'blog_detail' slug=blog_post.slug %}" class="text-decoration-none text-dark" title="{{ blog_post.title }}">
+                        <div class="blog-post-item rounded shadow p-4">
+                            {% if blog_post.image %}
+                                <img src="{{ blog_post.image.url }}" alt="{{ blog_post.title }}" class="img-fluid rounded">
+                            {% endif %}
+                            <div class="blog-post-details mt-3">
+                                <h3 class="text-dark">{{ blog_post.title }}</h3>
+                                <p>{{ blog_post.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="callback-section" style="margin-top: 20px; text-align: center; padding: 50px 0;">
+    <h2>Need Assistance?</h2>
+    <p>Feel free to connect with us, and we'll get back to you.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+</section>
+
+<!-- Your remaining sections here -->
+
+<!-- Footer -->
+<!-- Your existing footer code here -->
+
+</body>
+</html>
+{% endblock content %}

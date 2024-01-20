@@ -1,0 +1,96 @@
+<!-- service_list.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Your existing header code here -->
+<h2 class="text-center mb-4">Services</h2>
+<!-- Service List Section -->
+<section class="service-list-section">
+    <div class="service-list-container">
+        <div class="service-list">
+            {% for service in services %}
+                <a href="{% url 'service_detail' slug=service.slug %}" class="service-box">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.short_text }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- New section with image on the left and text on the right -->
+<section class="image-text-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'img/showimage4.jpg' %}" alt="Your Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-content">
+                    <h2 class="text-center mb-4">Seeing is Believing: Unlocking the Magic of Computer Vision</h2>
+                    <p>From self-driving cars to medical diagnosis, computer vision is transforming industries. Delve into image recognition, object detection, and scene understanding, showcasing real-world applications and ethical considerations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- New section with image on the right and text on the left -->
+<section class="image-text-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-content">
+                    <h2>The Power of Words: Unmasking the Art of Natural Language Processing</h2>
+                    <p>Explore how machines understand and generate human language. Go beyond chatbots to sentiment analysis, machine translation, and text summarization, highlighting the impact on communication and content creation.</p>
+                    <h2>Data, the New Gold: Unearthing Insights with Data Science</h2>
+                    <p>Uncover the secrets of data analysis, machine learning, and data visualization. Explain how data science shapes decision-making across industries, from healthcare to finance, and discuss responsible data usage and privacy.</p>
+                    <h2>From Sci-Fi to Reality: AI - Not Just in Robots, But in Your Coffee Maker</h2>
+                    <p> Make AI relatable by illustrating its presence in everyday objects and experiences. Highlight the benefits and challenges of AI integration, sparking conversation about its future impact on society and human-machine interaction.</p>
+                    <h2>Unearthing Gems: Keyword Research - The Secret Map to Search Engine Riches</h2>
+                    <p>Keyword research is your compass, guiding you towards topics that resonate with your audience and attract the right eyes. Explore tools and techniques for uncovering high-value keywords, understanding search intent, and analyzing competitor landscapes.</p>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'img/showimage5.jpg' %}" alt="Your Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- New section with image on the left and text on the right -->
+<section class="image-text-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'img/showimage6.jpg' %}" alt="Your Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <div class="text-content">
+                    <h2 class="text-center mb-4"> Polishing Your Palace: On-Page SEO</h2>
+                    <p>Optimize your website's internal structure, meta descriptions, and content to be search engine friendly and user-intuitive. Discover tactics for keyword integration, title tag optimization, internal linking, and mobile responsiveness.</p>
+                    <h2>The Synergistic Dance: Combining the Pillars for SEO Mastery</h2>
+                    <p>Understand how these SEO components work in harmony. Explore techniques for integrating keyword research into content creation, utilizing on-page optimization to attract valuable backlinks, and leveraging off-page efforts to boost website authority.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Connect with Us Section -->
+<section id="connect-with-us" style="padding: 50px 0; text-align: center;">
+    <div class="container">
+        <h2>Connect With Us</h2>
+        <p>Have questions or ready to get started on your tech journey? Connect with us for personalized assistance.</p>
+        
+        <a href="{% url 'contact' %}" class="btn btn-primary">Connect Now</a>
+    </div>
+</section>
+
+<!-- Your remaining sections here -->
+
+<!-- Your existing footer code here -->
+
+{% endblock content %}
