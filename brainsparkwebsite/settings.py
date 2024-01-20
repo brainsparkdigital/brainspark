@@ -121,9 +121,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# database_url = os.environ.get('DATABASE_URL')
-database_url='postgres://brainsparkdatabase_user:ex3MOPwbMczWRCytuuDRoVgiNFv8wRtw@dpg-cmlvhh21hbls73cco2hg-a.oregon-postgres.render.com/brainsparkdatabase'
-DATABASES['default']=dj_database_url.parse(database_url)
+
+DATABASES = {
+	"default": dj_database_url.parse('postgres://brainsparkdatabase_r6gu_user:jeJKY3or64pEVn6PLphR6IsmNzJjR9Qu@dpg-cmm0d1n109ks73961i3g-a.oregon-postgres.render.com/brainsparkdatabase_r6gu')
+}
+
+# DATABASES['default']=dj_database_url.parse('postgres://brainsparkdatabase_r6gu_user:jeJKY3or64pEVn6PLphR6IsmNzJjR9Qu@dpg-cmm0d1n109ks73961i3g-a/brainsparkdatabase_r6gu')
 
 # postgres://brainsparkdatabase_user:ex3MOPwbMczWRCytuuDRoVgiNFv8wRtw@dpg-cmlvhh21hbls73cco2hg-a.oregon-postgres.render.com/brainsparkdatabase
 # Password validation
