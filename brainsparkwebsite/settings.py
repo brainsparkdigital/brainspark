@@ -46,7 +46,7 @@ EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'localhost']
 
 # ALLOWED_HOSTS = []
 
@@ -114,13 +114,14 @@ WSGI_APPLICATION = 'brainsparkwebsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
 
 DATABASES = {
 	"default": dj_database_url.parse('postgres://brainsparkdatabase_r6gu_user:jeJKY3or64pEVn6PLphR6IsmNzJjR9Qu@dpg-cmm0d1n109ks73961i3g-a.oregon-postgres.render.com/brainsparkdatabase_r6gu')
