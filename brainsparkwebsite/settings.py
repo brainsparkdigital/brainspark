@@ -45,7 +45,8 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split('')
+ALLOWED_HOSTS = list(os.environ.get('ALLOWED_HOSTS', ''))
+
 # ALLOWED_HOSTS = []
 
 # # settings.py
