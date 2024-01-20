@@ -64,7 +64,6 @@ CSRF_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
-    # 'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,6 +74,7 @@ INSTALLED_APPS = [
     'core',
     'blog',
     'ckeditor',
+    'jet',
 ]
 
 SITE_ID = 1 
